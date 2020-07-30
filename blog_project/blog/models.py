@@ -4,6 +4,7 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
