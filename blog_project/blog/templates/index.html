@@ -34,7 +34,7 @@
                                     <img src="{% static 'img/header.jpg' %}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ post.title }}</h5>
-                                        <p class="card-text">{{ post.content|truncatewords:15 }}</p>
+                                        <p class="card-text">{{ post.content|truncatewords:15|safe }}</p>
                                         <small class="text-muted d-block">{{ post.created }}</small>
 
                                         <a href="#" class="read-more-link mt-3">Read More</a>

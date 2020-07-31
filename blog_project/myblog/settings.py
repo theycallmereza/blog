@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
+    # Third party apps
+    'ckeditor',
+
     # Local apps
     'blog.apps.BlogConfig',
 ]
