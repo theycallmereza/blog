@@ -1,0 +1,27 @@
+//UTILS
+@import "utils/variables";
+
+//BASE
+@import "base/base";
+
+
+//COMPONENTS
+@import "components/card";
+@import "components/buttons";
+
+
+//LAYOUTS
+@import "layout/navigation";
+@import "layout/header";
+@import "layout/form";
+
+//PAGES
+@import "pages/index";
+
+//THEMES
+
+
+
+//VENDORS]
+@import "vendors/bootstrap";
+@import "vendors/animate.css.scss";

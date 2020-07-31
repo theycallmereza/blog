@@ -1,0 +1,12 @@
+.projects {
+  .nav-item {
+    border: 1px solid $color-primary-dark;
+    border-radius: 100px;
+    margin-right: 5px;
+  }
+  .nav .active {
+    border: 1px solid $color-primary-dark;
+    border-radius: 100px;
+    background-color: $color-primary !important;
+  }
+}

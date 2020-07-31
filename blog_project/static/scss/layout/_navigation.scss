@@ -1,0 +1,27 @@
+.logo {
+  width: 64px;
+  height: 64px;
+}
+
+.navbar {
+  box-shadow: 2px 2px 5px $color-black;
+  opacity: 0.9;
+
+  & .nav-link {
+    color: $color-black !important;
+  }
+}
+.navbar .active {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.navbar .nav-item {
+  padding-right: 14px;
+  font-size: 24px;
+}
+
+.v-divider {
+  border-left: 2px solid black;
+  padding-left: 10px;
+}

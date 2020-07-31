@@ -1,0 +1,8 @@
+.modal-content {
+  .btn {
+    background-color: $color-primary;
+    &:hover {
+      background-color: $color-primary-dark !important;
+    }
+  }
+}
