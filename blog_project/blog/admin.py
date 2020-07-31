@@ -14,3 +14,5 @@ class PostAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'created', 'updated']
+    list_filter = ['created', 'updated']
+    prepopulated_fields = {'slug': ('name',)}

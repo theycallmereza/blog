@@ -1,5 +1,13 @@
 from django.test import TestCase
+from django.urls import reverse, resolve
+
 from ..models import Post
+from ..views import HomepageView
+
+
+def sample_post(title='Title One'):
+    """Create a sample post"""
+    return Post.objects.create(title=title, content="Some text ...")
 
 
 class PostTests(TestCase):
@@ -9,3 +17,25 @@ class PostTests(TestCase):
         post = Post.objects.create(title='Django', content='some text')
 
         self.assertEqual(post.title, str(post))
+
+    def test_posts_representation_in_homepage(self):
+        """Test show latest posts in home page"""
+        post1 = sample_post('Custom Django user model')
+        post1.status = 'published'
+        post1.save()
+        post2 = sample_post("Draft Post")
+
+        url = reverse('home')
+        response = self.client.get(url)
+        view = resolve('/')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
+        self.assertContains(response, post1.title)
+        self.assertNotContains(response, post2.title)
+        self.assertEqual(
+            view.func.__name__,
+            HomepageView.as_view().__name__
+        )
+
+
