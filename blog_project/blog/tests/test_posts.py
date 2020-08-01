@@ -5,9 +5,9 @@ from ..models import Post
 from ..views import HomepageView, PostListView
 
 
-def sample_post(title='Title One'):
+def sample_post(title='Title One', slug='title-one'):
     """Create a sample post"""
-    return Post.objects.create(title=title, content="Some text ...")
+    return Post.objects.create(title=title, slug=slug, content="Some text ...")
 
 
 class PostTests(TestCase):
@@ -20,10 +20,10 @@ class PostTests(TestCase):
 
     def test_posts_representation_in_homepage(self):
         """Test show latest posts in home page"""
-        post1 = sample_post('Custom Django user model')
+        post1 = sample_post(title='Custom Django user model', slug='custom-django-user-model')
         post1.status = 'published'
         post1.save()
-        post2 = sample_post("Draft Post")
+        post2 = sample_post(title="Draft Post", slug='draft-post')
 
         url = reverse('home')
         response = self.client.get(url)
@@ -40,10 +40,10 @@ class PostTests(TestCase):
 
     def test_post_list(self):
         """Test show all posts"""
-        post1 = sample_post('Custom Django user model')
+        post1 = sample_post(title='Custom Django user model', slug='custom-django-user-model')
         post1.status = 'published'
         post1.save()
-        post2 = sample_post("Draft Post")
+        post2 = sample_post(title="Draft Post", slug='draft-post')
 
         url = reverse('post-list')
         response = self.client.get(url)
