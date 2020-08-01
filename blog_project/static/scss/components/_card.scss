@@ -1,70 +1,69 @@
 .card {
   min-height: 200px;
 
-	img {
-		max-height: 300px;
-	}
+  img {
+    max-height: 300px;
+  }
 }
-
 /*
 * These styles creates the underlining of link
 */
 
-.read-more-link{
-	position: relative;
-	z-index: 1;
-	display: inline-flex;
+.read-more-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
 
-	padding-left: .75rem;
-	padding-bottom: .25rem;
-	padding-right: .75rem;
+  padding-left: .75rem;
+  padding-bottom: .25rem;
+  padding-right: .75rem;
 }
 
-.read-more-link::before{
-	content: "";
-	width: 100%;
-	height: 100%;
-	background-image: linear-gradient(to top, $color-primary-light 30%, rgba(0, 0, 0, 0) 45%);
+.read-more-link::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, $color-primary-light 30%, rgba(0, 0, 0, 0) 45%);
 
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	z-index: -1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
 
-	will-change: width;
-	transform-origin: left bottom
+  will-change: width;
+  transform-origin: left bottom
 }
 
-.read-more-link:hover::before{
-	width: 0;
+.read-more-link:hover::before {
+  width: 0;
 }
 
 /*
 * animation styles
 */
 
-.read-more-link::before{
-	transition: width .1s ease-out;
+.read-more-link::before {
+  transition: width .1s ease-out;
 }
 
-.read-more-link:hover::before{
-	transition-duration: .15s;
+.read-more-link:hover::before {
+  transition-duration: .15s;
 }
 
 /*
 * These styles for text decoration. The demo will be work without it
 */
 
-.read-more-link{
-	color: $color-black;
-	font-size: 1rem;
-	font-weight: 700;
+.read-more-link {
+  color: $color-black;
+  font-size: 1rem;
+  font-weight: 700;
 
-	text-decoration: none;
-	text-transform: uppercase;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-.read-more-link:focus{
-	outline: 2px solid $color-primary-light;
-	outline-offset: .5rem;
+.read-more-link:focus {
+  outline: 2px solid $color-primary-light;
+  outline-offset: .5rem;
 }
