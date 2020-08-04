@@ -127,6 +127,10 @@ label:focus,
   border-radius: 100px;
   background-color: #8186d5 !important; }
 
+.post-image {
+  width: 100%;
+  height: 700px !important; }
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

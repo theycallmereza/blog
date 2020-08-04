@@ -1,5 +1,6 @@
 import os
 from django.db import models
+from django.urls import reverse
 from ckeditor.fields import RichTextField
 
 
@@ -37,7 +38,10 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
-    cover = models.ImageField(upload_to=image_path)
+    cover = models.ImageField(upload_to=image_path, null=True, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('post-detail', args=[str(self.slug)])
 
     def __str__(self):
         return self.title

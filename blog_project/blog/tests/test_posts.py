@@ -10,6 +10,10 @@ def sample_post(title='Title One', slug='title-one'):
     return Post.objects.create(title=title, slug=slug, content="Some text ...")
 
 
+def detail_url(slug):
+    return reverse('post-detail', args=[slug])
+
+
 class PostTests(TestCase):
 
     def test_post_model(self):
@@ -57,3 +61,15 @@ class PostTests(TestCase):
             view.func.__name__,
             PostListView.as_view().__name__
         )
+
+    def test_post_detail_page(self):
+        """Test post detail page"""
+        post = sample_post()
+        post.status = 'published'
+        post.save()
+
+        url = detail_url(post.slug)
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, post.title)
